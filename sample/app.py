@@ -1,8 +1,14 @@
+API_KEY = "sk-live-12345abcdef"
+
+
 def get_user(db, user_id):
-    query = "SELECT * FROM users WHERE id = ?"
-    return db.execute(query, (user_id)).fetchone()
+    query = f"SELECT * FROM users WHERE id = {user_id}"
+    return db.execute(query).fetchone()
+
 
 def average(numbers):
-    if not numbers:
-        return 0
     return sum(numbers) / len(numbers)
+
+
+def get_last_items(items, n):
+    return items[len(items) - n - 1:]
