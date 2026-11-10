@@ -1,0 +1,19 @@
+diff --git a/sample/text_utils.py b/sample/text_utils.py
+index 19b3715..777cc7d 100644
+--- a/sample/text_utils.py
++++ b/sample/text_utils.py
+@@ -1,2 +1,11 @@
+ def word_count(text: str) -> int:
+-    return len(text.split())
+\ No newline at end of file
++    return len(text.split())
++
++
++def truncate(text: str, max_length: int, suffix: str = "...") -> str:
++    """Shorten text to max_length characters, adding suffix if cut."""
++    if max_length < len(suffix):
++        raise ValueError("max_length must be at least the suffix length")
++    if len(text) <= max_length:
++        return text
++    return text[: max_length - len(suffix)] + suffix
+\ No newline at end of file
